@@ -1,5 +1,6 @@
-import 'package:chamber_link_dummy_merchant/product.dart';
-import 'package:chamber_link_dummy_merchant/profile.dart';
+import 'package:chamber_link_dummy_merchant/constant/color_constant.dart';
+import 'package:chamber_link_dummy_merchant/pages/product.dart';
+import 'package:chamber_link_dummy_merchant/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 class Merchant extends StatefulWidget {
@@ -15,37 +16,24 @@ class _MerchantState extends State<Merchant> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: kFifthColor, 
+        appBar: AppBar(
+          backgroundColor: kPrimaryColor, // ✅ Apply primary color
+          title: const Text(
+            "Merchant Profile",
+            style: TextStyle(fontSize: 20,color: Colors.white,),
+          ),
+          centerTitle: true, // ✅ Center the title
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 5.0),
+            padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 0.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      ),
-                      const Text(
-                        "Merchant Profile",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   height: 180,
@@ -64,13 +52,15 @@ class _MerchantState extends State<Merchant> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          'assets/merchant/7elogo.png', // Replace with your image path
-                          width: 50, // Adjust size as needed
-                          height: 50,
-                          fit: BoxFit.contain,
+                        ClipOval(
+                          child: Image.asset(
+                            'assets/merchant/7elogo.png',
+                            width: 60,
+                            height: 60,
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                        const SizedBox(width: 10), // Space between text and image
+                        const SizedBox(width: 10),
                         const Text(
                           "Merchant Profile",
                           style: TextStyle(
@@ -78,21 +68,22 @@ class _MerchantState extends State<Merchant> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
-                        ), 
+                        ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 1),
-                const TabBar(
-                  isScrollable: false,
-                  labelStyle: TextStyle(fontSize: 20),
-                  tabs: [
-                    Tab(text: "Profile"),
-                    Tab(text: "Product"),
-                  ],
+               const TabBar(
+                labelStyle: TextStyle(fontSize: 20),
+                labelColor: Colors.black, // ✅ Set label text color to black
+                indicator: UnderlineTabIndicator(
+                  borderSide: BorderSide(color: Colors.black, width: 4.0), // ✅ Thicker black border
                 ),
-                // FIX: Use Expanded to prevent unbounded height issue
+                tabs: [
+                  Tab(text: "Profile"),
+                  Tab(text: "Product"),
+                ],
+              ),
                 const Expanded(
                   child: TabBarView(
                     children: [

@@ -9,8 +9,8 @@ class Detailwidget extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Merchant Name',
@@ -28,7 +28,7 @@ class Detailwidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Merchant Phone',
+              'Merchant Phone Number',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.black,

@@ -8,8 +8,7 @@ class Imagewidget extends StatefulWidget {
 }
 
 class _ImagewidgetState extends State<Imagewidget> {
-  
-    final List<String> products = [
+  final List<String> products = [
     'assets/merchant/7e.jpg',
     'assets/merchant/guaman.jpg',
     'assets/merchant/mcd.png',
@@ -22,7 +21,10 @@ class _ImagewidgetState extends State<Imagewidget> {
       child: Stack(
         children: <Widget>[
           Container(
+            width: 80,
+            height: 80,
             decoration: const BoxDecoration(
+              shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
                   color: Color(0x55000000),
@@ -30,17 +32,13 @@ class _ImagewidgetState extends State<Imagewidget> {
                   offset: Offset(2, 2),
                 ),
               ],
-              shape: BoxShape.circle,
             ),
-            child: SizedBox(
-              width: 80,
-              height: 80,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(products[0]),
+            child: ClipOval( // Ensures the image is fully circular
+              child: Image.asset(
+                products[0],
+                fit: BoxFit.cover, // Fills the circular space properly
               ),
             ),
-            
           ),
         ],
       ),

@@ -1,4 +1,5 @@
-import 'package:chamber_link_dummy_merchant/homepage.dart';
+import 'package:chamber_link_dummy_merchant/constant/color_constant.dart';
+import 'package:chamber_link_dummy_merchant/pages/homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      color: kFifthColor,
       home: Homepage(),
     );
   }
