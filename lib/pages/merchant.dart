@@ -81,7 +81,7 @@ class _MerchantState extends State<Merchant> {
                 ),
                 tabs: [
                   Tab(text: "Profile"),
-                  Tab(text: "Product"),
+                  Tab(text: "Catalogue"),
                 ],
               ),
                 const Expanded(
